@@ -31,6 +31,7 @@ Develop a modern data warehouse suing SQL server to consolidate sales data, enab
 
 #### Objective
 Develop SQL-based analytics to deliver detailed insights into:
+
 -👨🏻‍👩🏻‍👦🏻‍👦🏻 **Customer Behavior** 
 
 -📦 **Product Performance**
