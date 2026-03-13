@@ -209,7 +209,11 @@ DECLARE @start_time DATETIME, @end_time DATETIME, @start_batch_time DATETIME, @e
 		PRINT '-----------------';
 		SET @end_batch_time = GETDATE();
 
-	PRINT 'Batch Load Duration: ' + CAST(DATEDIFF(SECOND,@start_batch_time, @end_batch_time)AS NVARCHAR) + ' sec'
+	PRINT '======================================================';
+	PRINT 'Silver Layer Loading Completed';
+	PRINT 'Batch Duration: ' + CAST(DATEDIFF(SECOND, @batch_start_time, @batch_end_time) AS NVARCHAR) + ' secs';
+	PRINT '======================================================';
+	
 	END TRY
  
 -----------------------------------------------------------------------------------------------------
