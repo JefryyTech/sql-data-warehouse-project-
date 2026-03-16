@@ -103,6 +103,12 @@ The Gold Layer follows a Star Schema design, optimized for analytical queries an
 
 <img width="952" height="552" alt="Image" src="https://github.com/user-attachments/assets/30cb193b-0ff1-4795-a5f6-1c7dce26d169" />
 
+### Relationships
+| From | Key | To |
+|---|---|---|
+| gold.fact_sales | product_key (FK1) | gold.dim_products |
+| gold.fact_sales | customer_key (FK2) | gold.dim_customers |
+
 ### Star Schema Overview
 
 **Fact Table: gold.fact_sales**
@@ -121,11 +127,7 @@ The Gold Layer follows a Star Schema design, optimized for analytical queries an
 - Contains product details, category, and pricing information
 - One product can appear in many sales transactions (one to many)
 
-### Relationships
-| From | Key | To |
-|---|---|---|
-| gold.fact_sales | product_key (FK1) | gold.dim_products |
-| gold.fact_sales | customer_key (FK2) | gold.dim_customers |
+
 
 ## Integration Model
 
