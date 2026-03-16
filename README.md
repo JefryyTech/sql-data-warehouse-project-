@@ -4,7 +4,7 @@ Welcome to the **Data Warehouse and Analytics Project** repository!
 
 Building a modern data warehouse with SQL server, including ETL, processes, data modeling, and analytics.
 
---
+---
 
 ## 📋 Project Requirements
 
@@ -71,10 +71,35 @@ The project follows a medallion architecture with three layers, each serving a d
 - Power BI for BI and reporting.
 - Ad hoc SQL queries for direct data exploration.
 ---
+## Data Flow
 
+The diagram below illustrates how data moves through each layer of the warehouse,
+from raw source files to the final analytical model.
 
+<img width="951" height="462" alt="Image" src="https://github.com/user-attachments/assets/3dc1903c-0165-4e2c-a344-23c35cbab236" />
 
+### Data Flow Overview
+
+**Sources**
+- CRM system provides: crm_sales_details, crm_cust_info, crm_prd_info
+- ERP system provides: erp_cust_az12, erp_loc_a101, erp_px_cat_g1v2
+
+**Bronze Layer**
+- All 6 source tables are ingested as-is into the Bronze layer with no transformations.
+
+**Silver Layer**
+- All 6 Bronze tables are cleaned, standardized, and transformed into their
+  corresponding Silver tables.
+
+**Gold Layer**
+- Silver tables are integrated and modeled into 3 analytical objects:
+  - gold.fact_sales: Central fact table for sales transactions
+  - gold.dim_customers: Customer dimension combining CRM and ERP customer data
+  - gold.dim_products: Product dimension combining CRM and ERP category data
 ---
 
+<img width="941" height="541" alt="Image" src="https://github.com/user-attachments/assets/f877472a-cdc3-42aa-9346-2dbc7528829f" />
+
+---
 
 ## About Me
