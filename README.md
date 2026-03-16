@@ -120,12 +120,32 @@ The Gold Layer follows a Star Schema design, optimized for analytical queries an
 - Primary Key: product_key (surrogate key)
 - Contains product details, category, and pricing information
 - One product can appear in many sales transactions (one to many)
+- 
+## Integration Model
+
+The diagram below shows how the CRM and ERP source tables relate to each other
+and how they are integrated across the pipeline.
+<img width="1137" height="741" alt="Image" src="https://github.com/user-attachments/assets/f8810a11-ddde-4fb3-a813-da098345edc5" />
 
 ### Relationships
 | From | Key | To |
 |---|---|---|
 | gold.fact_sales | product_key (FK1) | gold.dim_products |
 | gold.fact_sales | customer_key (FK2) | gold.dim_customers |
+
+**Customer Integration**
+- crm_cust_info is the primary customer table, identified by cst_id and cst_key
+- erp_cust_az12 enriches customer records with extra demographics, joined on cst_key = cid
+- erp_loc_a101 enriches customer records with location data, joined on cst_key = cid
+
+**Product Integration**
+- crm_prd_info is the primary product table, identified by prd_key
+- erp_px_cat_g1v2 enriches product records with category information, joined on cat_id = id
+
+**Sales Integration**
+- crm_sales_details is the central transaction table
+- sls_cust_id links sales records to crm_cust_info
+- sls_prd_key links sales records to crm_prd_info
 ---
 
 ## About Me
