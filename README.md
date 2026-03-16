@@ -158,4 +158,4 @@ My first Data Warehouse and Data Engineering project, built as a stepping stone 
 
 The next step is to scale this project further by introducing Python for pipeline automation,
 moving the infrastructure to the cloud, and building a full end to end data engineering
-pipeline using modern tools such as Azure, dbt, and Apache Airflow.
+pipeline using modern tools such as AWS, Azure, GCP, dbt, and Apache Airflow.
