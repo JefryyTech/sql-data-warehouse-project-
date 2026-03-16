@@ -76,7 +76,7 @@ The project follows a medallion architecture with three layers, each serving a d
 The diagram below illustrates how data moves through each layer of the warehouse,
 from raw source files to the final analytical model.
 
-<img width="951" height="462" alt="Image" src="https://github.com/user-attachments/assets/3dc1903c-0165-4e2c-a344-23c35cbab236" />
+<img width="963" height="473" alt="Image" src="https://github.com/user-attachments/assets/9a474383-1c00-462d-b468-1c94fcfb2162" />
 
 ### Data Flow Overview
 
@@ -97,9 +97,35 @@ from raw source files to the final analytical model.
   - gold.dim_customers: Customer dimension combining CRM and ERP customer data
   - gold.dim_products: Product dimension combining CRM and ERP category data
 ---
+## Data Model
 
-<img width="941" height="541" alt="Image" src="https://github.com/user-attachments/assets/f877472a-cdc3-42aa-9346-2dbc7528829f" />
+The Gold Layer follows a Star Schema design, optimized for analytical queries and Power BI reporting.
 
+<img width="952" height="552" alt="Image" src="https://github.com/user-attachments/assets/30cb193b-0ff1-4795-a5f6-1c7dce26d169" />
+
+### Star Schema Overview
+
+**Fact Table: gold.fact_sales**
+- Central table containing all sales transactions
+- Connects to both dimension tables via foreign keys
+- FK1: product_key links to gold.dim_products
+- FK2: customer_key links to gold.dim_customers
+
+**Dimension Table: gold.dim_customers**
+- Primary Key: customer_key (surrogate key)
+- Contains customer demographics, location, and account information
+- One customer can have many sales transactions (one to many)
+
+**Dimension Table: gold.dim_products**
+- Primary Key: product_key (surrogate key)
+- Contains product details, category, and pricing information
+- One product can appear in many sales transactions (one to many)
+
+### Relationships
+| From | Key | To |
+|---|---|---|
+| gold.fact_sales | product_key (FK1) | gold.dim_products |
+| gold.fact_sales | customer_key (FK2) | gold.dim_customers |
 ---
 
 ## About Me
