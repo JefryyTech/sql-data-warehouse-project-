@@ -133,6 +133,7 @@ The Gold Layer follows a Star Schema design, optimized for analytical queries an
 
 The diagram below shows how the CRM and ERP source tables relate to each other
 and how they are integrated across the pipeline.
+
 <img width="1137" height="741" alt="Image" src="https://github.com/user-attachments/assets/f8810a11-ddde-4fb3-a813-da098345edc5" />
 
 
@@ -152,3 +153,9 @@ and how they are integrated across the pipeline.
 ---
 
 ## About Me
+
+My first Data Warehouse and Data Engineering project, built as a stepping stone towards my path into becoming a Data Engineer and as well a learning exercise and a portfolio piece. The project covers the full pipeline from raw source ingestion to a business ready analytical model, applying industry standard practices including medallion architecture, data quality checks, error handling, and documentation.
+
+The next step is to scale this project further by introducing Python for pipeline automation,
+moving the infrastructure to the cloud, and building a full end to end data engineering
+pipeline using modern tools such as Azure, dbt, and Apache Airflow.
